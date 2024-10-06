@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
+import { HousingLocation, housingLocationList } from '../housing-location';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HousingLocationComponent],
+  imports: [HousingLocationComponent, CommonModule],
   template: `
     <section>
       <form>
@@ -12,9 +15,14 @@ import { HousingLocationComponent } from '../housing-location/housing-location.c
       </form>
     </section>
     <section class="results">
-      <app-housing-location></app-housing-location>
+      <app-housing-location
+        *ngFor="let item of housingLocationList"
+        [housingLocation]="item"
+      />
     </section>
   `,
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  housingLocationList: HousingLocation[] = housingLocationList;
+}
