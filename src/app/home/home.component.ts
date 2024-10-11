@@ -8,17 +8,19 @@ import { HousingLocation, housingLocationList } from '../housing-location';
   standalone: true,
   imports: [HousingLocationComponent, CommonModule],
   template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filtrar por cidade" />
-        <button class="primary" type="button">Buscar</button>
-      </form>
-    </section>
-    <section class="results">
-      <app-housing-location
-        *ngFor="let item of housingLocationList"
-        [housingLocation]="item"
-      />
+    <section class="content">
+      <section>
+        <form>
+          <input type="text" placeholder="Filtrar por cidade" />
+          <button class="primary" type="button">Buscar</button>
+        </form>
+      </section>
+      <section class="results">
+        <app-housing-location
+          *ngFor="let item of housingLocationList"
+          [housingLocation]="item"
+        />
+      </section>
     </section>
   `,
   styleUrl: './home.component.scss',

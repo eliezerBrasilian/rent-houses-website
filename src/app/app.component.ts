@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent],
+  imports: [
+    HomeComponent,
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+  ],
   template: `
     <main>
       <header class="brand-name">
@@ -16,10 +23,8 @@ import { HomeComponent } from './home/home.component';
           aria-hidden="true"
         />
       </header>
-      <section class="content">
-        <app-home></app-home>
-      </section>
     </main>
+    <router-outlet></router-outlet>
   `,
   styleUrl: './app.component.scss',
 })

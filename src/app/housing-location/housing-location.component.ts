@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { HousingLocation } from '../housing-location';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-housing-location',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   template: `
-    <section class="listing">
+    <section class="listing" routerLink="/details" routerLinkActive="active">
       <img
         class="listing-photo"
         [src]="housingLocation.photo"
