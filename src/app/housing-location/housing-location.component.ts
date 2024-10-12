@@ -7,7 +7,11 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <section class="listing" routerLink="/details" routerLinkActive="active">
+    <section
+      class="listing"
+      routerLink="/details/{{ housingLocation.id }}"
+      routerLinkActive="active"
+    >
       <img
         class="listing-photo"
         [src]="housingLocation.photo"
